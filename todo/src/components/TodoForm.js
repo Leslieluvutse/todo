@@ -27,11 +27,11 @@ const TodoForm = () => {
         if (data.title.length === 0) {
             toast.error('Please enter a title', {
                 position: toast.POSITION.TOP_RIGHT,
-                autoClose: 3000,
+                autoClose: 4000,
             })
         } else {
             const newTodo = { title: data.title, date: addTodo() }; // Include date in the new todo object
-            axios.post('http://localhost:4000/todos', newTodo)
+            axios.post('http://localhost:4000/todos',newTodo)
                 .then(res => {
                     toast.success('New todo has been created successfully',
                        {
@@ -54,7 +54,7 @@ const TodoForm = () => {
     return (
         <form onSubmit={handleSubmit}>
             <div className="form">
-                <span className="created-at">{addTodo()}</span>
+                <span className="created-at">{}</span>
                 <input
                     name="title"
                     type="text"
@@ -62,11 +62,11 @@ const TodoForm = () => {
                     onChange={handleChange}
                     placeholder="Add New Task" />
                 
-                <button type="submit">Add</button>
+                <button type="submit">ADD</button>
             </div>
             <ToastContainer/>
         </form>
     )
-}
-
-export default TodoForm;
+    
+    };
+    export default TodoForm;
